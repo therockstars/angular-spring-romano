@@ -24,6 +24,8 @@ public class WebSocket {
     public HandlerMapping webSocketMapping() {
         Map<String, Object> map = new HashMap<>();
         map.put("/ws", new EchoSocketHandler());
+        map.put("/chat", new ChatSocketHandler());
+
         SimpleUrlHandlerMapping simpleUrlHandlerMapping = new SimpleUrlHandlerMapping();
         simpleUrlHandlerMapping.setUrlMap(map);
 
