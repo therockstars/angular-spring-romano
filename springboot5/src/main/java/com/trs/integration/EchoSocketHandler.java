@@ -21,15 +21,8 @@ public class EchoSocketHandler implements WebSocketHandler {
 
         return webSocketSession.send(webSocketSession.receive()
                 .doOnNext(WebSocketMessage::retain)
-                //.doOnNext(WebSocketMessage::retain)
                 .doOnNext(wsm -> {
                     this.log(wsm);
-//                    try {
-//                        Thread.sleep(5000);
-//                    }
-//                    catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
                 })
         );
     }
