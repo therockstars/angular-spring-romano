@@ -1,0 +1,49 @@
+<html>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<p>Do you See this?</p>
+<!--Insert UserName Section - MatCardModule-->
+<div *ngIf="!isUserSet ; else chatTemplate">
+  <mat-card>
+    <mat-card-title>Enter your UserName</mat-card-title>
+    <mat-card-content>
+
+      <!--UserName Input-->
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="username">
+      </mat-form-field>
+
+      <button mat-button color="primary" (click)="sendUsername()">Send</button>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+<!--Chat Section - MatCardModule-->
+<ng-template #chatTemplate>
+  <mat-card class="chat-card">
+    <mat-card-title>Chat</mat-card-title>
+    <mat-card-content class="chat-content">
+      <mat-list>
+        <mat-list-item *ngFor="let message of messages">
+          <mat-icon mat-list-icon><i class="material-icons">sentiment_satisfied</i></mat-icon>
+          <h4 mat-line>{{message.username}}</h4>
+          <p mat-line>{{message.content}}</p>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+
+    <mat-card-footer>
+
+      <!--MESSAGE INPUT-->
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="message">
+      </mat-form-field>
+
+      <!--MESSAGE BUTTON-->
+      <button mat-button color="primary" (click)="sendMessage()">Send</button>
+
+    </mat-card-footer>
+
+  </mat-card>
+</ng-template>
+</html>
