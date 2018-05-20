@@ -1,6 +1,26 @@
 <html>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<p>Do you See this?</p>
+<p>How are you Joy?</p>
+
+<p>Today is {{today | date}}</p>
+
+<!--output 'Monday, June 15, 2015 at 9:03:01 AM GMT+01:00' -->
+<p>The full date/time is {{today | date:'full'}}</p>
+
+<!--output 'Lundi 15 Juin 2015 à 09:03:01 GMT+01:00'-->
+<p>The full date/time in french is: {{today | date:'full':'':'fr'}}</p>
+
+<!--&lt;!&ndash;output 'Lundi 15 Juin 2015 à 09:03:01 GMT+01:00'&ndash;&gt;-->
+<!--<p>The full date/time in Mountain is: {{today | date:'full':'':'MDT'}}</p>-->
+
+
+<!--output '2015-06-15 05:03 PM GMT+9'-->
+<p>The custom date (GMT +0900) is {{today | date:'HH:mm a z':'+0900'}}</p>
+
+<!--output '2015-06-15 09:03 AM GMT+9'-->
+<p>The custom date with fixed timezone is {{fixedTimezone | date:'yyyy-MM-dd HH:mm a z':'+0900'}}</p>
+
+
 <!--Insert UserName Section - MatCardModule-->
 <div *ngIf="!isUserSet ; else chatTemplate">
   <mat-card>
